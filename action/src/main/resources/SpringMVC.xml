@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+                           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+                           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+                          ">
+
+    <!-- 2.扫描包 -->
+    <context:component-scan base-package="action" />
+    <context:component-scan base-package="util" />
+
+    <!-- 3.配置 HadnlerMapping + HandlerAdapter -->
+    <mvc:annotation-driven />
+
+    <!-- 4.配置 viewResolver + view  /WEB-INF/pages/aaa.jsp -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- 5.在SpringMVC框架中访问静态资源(xxx.css or xxx.js...) -->
+    <mvc:default-servlet-handler />
+
+    <!-- 6.文件上传 -->
+    <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+        <property name="defaultEncoding" value="utf-8" />
+        <!-- 限制上传文件的大小为100M = 1 * 1024 * 1024 * 100(单位b) -->
+        <property name="maxUploadSize" value="104857600" />
+    </bean>
+
+</beans>

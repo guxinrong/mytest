@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.zte</groupId>
+  <artifactId>parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <build />
+
+  <properties>
+    <spring-version>4.3.18.RELEASE</spring-version>
+    <servlet-api>3.1.0</servlet-api>
+    <jstl-api.version>1.2</jstl-api.version>
+    <jsp-api.version>2.2.1</jsp-api.version>
+    <struts.version>1.2.9</struts.version>
+    <!-- <mybatis.version>3.4.1</mybatis.version> -->
+    <mysql.version>5.1.40</mysql.version>
+    <commons-fileupload>1.3.1</commons-fileupload>
+    <commons-io.version>2.4</commons-io.version>
+    <fastjson.version>1.2.47</fastjson.version>
+  </properties>
+
+
+  <!-- 父工程只负责管理所有的依赖, 不被子工程继承: 使用dependencyManagement -->
+  <dependencyManagement>
+    <dependencies>
+
+      <!-- Spring start-->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${spring-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${spring-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>${spring-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-tx</artifactId>
+        <version>${spring-version}</version>
+      </dependency>
+      <!-- Spring end-->
+
+      <!-- javaee start -->
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>${servlet-api}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>${jstl-api.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.servlet.jsp</groupId>
+        <artifactId>javax.servlet.jsp-api</artifactId>
+        <version>${jsp-api.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <!-- javaee end -->
+
+      <!-- mybatis start -->
+      <!-- <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis</artifactId>
+          <version>${mybatis.version}</version>
+      </dependency> -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+      </dependency>
+      <!-- mybatis end -->
+
+      <!-- struts -->
+      <!-- <dependency>
+          <groupId>struts</groupId>
+          <artifactId>struts</artifactId>
+          <version>${struts.version}</version>
+      </dependency> -->
+      <!-- struts -->
+
+      <!-- 文件上传 start -->
+      <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>${commons-fileupload}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons-io.version}</version>
+      </dependency>
+      <!-- 文件上传 end -->
+
+      <!-- fastjson start -->
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>${fastjson.version}</version>
+      </dependency>
+      <!-- fastjson end -->
+    </dependencies>
+
+  </dependencyManagement>
+
+
+  <modules>
+    <!-- <module>ums-dao</module>
+    <module>ums-service</module>
+    <module>ums-action</module> -->
+  </modules>
+</project>
